@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PORTFOLIO_DATA } from "@/data/content";
 import { GraduationCap, Cpu, ShieldCheck, Zap, User } from "lucide-react";
 
@@ -12,14 +13,21 @@ export function About() {
         <span className="h-px flex-1 bg-slate-800" />
       </div>
 
-      <div className="glass-card rounded-2xl p-6 sm:p-8 border border-white/10">
+      <div className="glass-card rounded-2xl p-6 sm:p-8 border border-white/10 shadow-xl shadow-black/40">
         <div className="flex flex-col md:flex-row gap-6 items-start">
-          {/* Avatar representation with gradient border */}
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-emerald-500/40 flex items-center justify-center shrink-0 text-emerald-300 font-mono text-xl font-bold shadow-lg shadow-emerald-500/10">
-            PR
+          {/* Avatar representation with high-res portrait and status beacon */}
+          <div className="relative w-20 h-20 rounded-2xl overflow-hidden border-2 border-emerald-500/40 shrink-0 shadow-xl shadow-emerald-500/20 group">
+            <Image
+              src="/avatar.jpg"
+              alt="Pratyush Kiran Rath"
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-emerald-500/10 pointer-events-none" />
+            <span className="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-slate-950" />
           </div>
 
-          <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+          <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed flex-1">
             <p>
               I am an undergraduate Computer Science student at{" "}
               <strong className="text-white font-medium">{PORTFOLIO_DATA.personal.university}</strong>{" "}
@@ -58,10 +66,12 @@ export function About() {
               </div>
             </div>
 
-            <div className="pt-2 flex items-center gap-2 text-xs text-slate-400 font-mono">
-              <GraduationCap className="w-4 h-4 text-emerald-400" />
-              <span>Current Status: B.Tech CSE (Centurion University) · Graduating 2029</span>
-            </div>
+            <p className="text-xs sm:text-sm text-slate-400 pt-2 border-t border-white/5 flex items-center gap-2">
+              <GraduationCap className="w-4 h-4 text-emerald-400 shrink-0" />
+              <span>
+                Based in Odisha, India. Seeking summer 2026 systems engineering, full-stack, and developer tooling internships.
+              </span>
+            </p>
           </div>
         </div>
       </div>

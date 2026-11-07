@@ -30,6 +30,10 @@ export function Nav() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-6 text-sm text-slate-300 font-medium">
+          <a href="#showcase" className="hover:text-cyan-400 transition-colors flex items-center gap-1">
+            <span>Showcase</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+          </a>
           <a href="#projects" className="hover:text-emerald-400 transition-colors">
             Projects
           </a>
@@ -70,6 +74,14 @@ export function Nav() {
       {/* Mobile Drawer */}
       {isOpen && (
         <div className="md:hidden mt-2 p-5 bg-slate-900/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl flex flex-col gap-3 text-sm text-slate-200">
+          <a
+            href="#showcase"
+            onClick={() => setIsOpen(false)}
+            className="py-1.5 hover:text-cyan-400 transition-colors flex items-center gap-1.5 font-semibold text-cyan-300"
+          >
+            <span>Interactive Showcase</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+          </a>
           <a
             href="#projects"
             onClick={() => setIsOpen(false)}

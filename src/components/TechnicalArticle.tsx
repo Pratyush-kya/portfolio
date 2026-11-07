@@ -1,4 +1,5 @@
-import { FileCode, Terminal, CheckCircle2, BookOpen } from "lucide-react";
+import Image from "next/image";
+import { FileCode, Terminal, CheckCircle2, BookOpen, Cpu } from "lucide-react";
 
 export function TechnicalArticle() {
   return (
@@ -40,6 +41,27 @@ export function TechnicalArticle() {
               transformer-inference-profiler ↗
             </a>
           </p>
+        </div>
+
+        {/* High-Tech Architecture Figure Banner */}
+        <div className="relative rounded-xl overflow-hidden border border-white/10 bg-slate-950">
+          <div className="relative h-48 sm:h-64 w-full">
+            <Image
+              src="/projects/neural-chip.jpg"
+              alt="Neural Chip & CUDA Memory Architecture"
+              fill
+              className="object-cover object-center opacity-70"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+            <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs font-mono">
+              <span className="text-emerald-300 bg-black/80 px-2.5 py-1 rounded backdrop-blur-sm border border-emerald-500/30">
+                Fig 1.0 // Kernel /dev/shm Ring Buffer Architecture
+              </span>
+              <span className="hidden sm:inline text-slate-400 bg-black/80 px-2.5 py-1 rounded backdrop-blur-sm">
+                Zero Disk Contention
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* Section 1 */}
