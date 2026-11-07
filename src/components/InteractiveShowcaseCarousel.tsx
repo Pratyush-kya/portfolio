@@ -138,6 +138,8 @@ const SHOWCASE_SLIDES: ShowcaseSlide[] = [
 export function InteractiveShowcaseCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const current = SHOWCASE_SLIDES[currentIndex];
@@ -149,6 +151,36 @@ export function InteractiveShowcaseCarousel() {
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev - 1 + SHOWCASE_SLIDES.length) % SHOWCASE_SLIDES.length);
   };
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+    if (isLeftSwipe) {
+      nextSlide();
+    } else if (isRightSwipe) {
+      prevSlide();
+    }
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") prevSlide();
+      if (e.key === "ArrowRight") nextSlide();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   useEffect(() => {
     if (!isPlaying) {
@@ -220,7 +252,12 @@ export function InteractiveShowcaseCarousel() {
       </div>
 
       {/* Main Showcase Stage */}
-      <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-slate-950/80 backdrop-blur-2xl shadow-2xl shadow-black/80">
+      <div 
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        className="relative rounded-3xl overflow-hidden border border-white/10 bg-slate-950/80 backdrop-blur-2xl shadow-2xl shadow-black/80 select-none"
+      >
         {/* Ambient Glow Gradient matching current slide accent */}
         <div 
           className={`absolute -top-24 -left-24 w-96 h-96 rounded-full bg-gradient-to-br ${current.accentBg} blur-3xl opacity-40 pointer-events-none transition-all duration-700`}
