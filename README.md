@@ -28,7 +28,7 @@ This portfolio is engineered around radical honesty, defensible metrics, and hig
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Pratyush-kya/portfolio.git
+   git clone https://github.com/Pratyush-kya/portfolio_pratyush.git
    cd portfolio
    ```
 
