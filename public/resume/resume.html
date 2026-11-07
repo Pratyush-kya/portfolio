@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pratyush Kiran Rath - Resume</title>
+  <style>
+    @page { margin: 0.5in; size: letter; }
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin: 0;
+      padding: 0;
+    }
+    h1 { font-size: 19pt; margin: 0 0 2px 0; font-weight: 700; color: #111; }
+    .contact { font-size: 9pt; color: #444; margin-bottom: 12px; }
+    .contact a { color: #0284c7; text-decoration: none; }
+    h2 { font-size: 11pt; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1.5px solid #222; margin: 12px 0 6px 0; padding-bottom: 2px; color: #111; }
+    .item { margin-bottom: 8px; }
+    .item-header { display: flex; justify-content: space-between; font-weight: 600; font-size: 10.5pt; }
+    .item-sub { display: flex; justify-content: space-between; font-style: italic; font-size: 9.5pt; color: #444; margin-bottom: 3px; }
+    ul { margin: 2px 0 0 16px; padding: 0; }
+    li { margin-bottom: 2px; font-size: 9.5pt; }
+    .skills-row { margin-bottom: 4px; font-size: 9.5pt; }
+    .skills-row strong { font-size: 9.5pt; }
+  </style>
+</head>
+<body>
+  <div style="text-align: center;">
+    <h1>Pratyush Kiran Rath</h1>
+    <div class="contact">
+      Odisha, India &bull; pratyushkiranrath4@gmail.com &bull; 
+      <a href="https://linkedin.com/in/pratyush-kiran-rath-3a187937a">linkedin.com/in/pratyush-kiran-rath-3a187937a</a> &bull; 
+      <a href="https://github.com/Pratyush-kya">github.com/Pratyush-kya</a> &bull; 
+      <a href="https://pratyushrath.vercel.app">pratyushrath.vercel.app</a>
+    </div>
+  </div>
+
+  <h2>Education</h2>
+  <div class="item">
+    <div class="item-header">
+      <span>Centurion University of Technology and Management (CUTM)</span>
+      <span>Odisha, India</span>
+    </div>
+    <div class="item-sub">
+      <span>Bachelor of Technology in Computer Science and Engineering</span>
+      <span>2025 – 2029</span>
+    </div>
+    <div style="font-size: 9pt; color: #333;">
+      <strong>Relevant Coursework:</strong> Systems Programming, Data Structures & Algorithms, Operating Systems, Computer Organization, Database Systems.
+    </div>
+  </div>
+
+  <h2>Featured Projects & Research</h2>
+
+  <div class="item">
+    <div class="item-header">
+      <span>Transformer Inference Profiler & Memory Telemetry Suite</span>
+      <span>Python, PyTorch, Plotly, tmpfs, PyTest</span>
+    </div>
+    <div class="item-sub">
+      <span>Open Source Mechanistic Telemetry Suite</span>
+      <span>github.com/Pratyush-kya/transformer-inference-profiler</span>
+    </div>
+    <ul>
+      <li>Architected an in-RAM zero-disk telemetry engine utilizing Linux <code>/dev/shm</code> tmpfs ring buffers and in-memory SQLite, achieving a verified <strong>0.00 MB/s disk write rate</strong> during continuous LLM decoding.</li>
+      <li>Implemented analytical KV-cache byte accounting for Multi-Head (MHA), Grouped-Query (GQA), and Multi-Head Latent Attention (MLA).</li>
+      <li>Intercepted logits to compute instantaneous Shannon entropy $H(X)$ to detect token candidate uncertainty in real time.</li>
+      <li>Validated system reliability with a <strong>29/29 PyTest test suite</strong> and streaming 60 FPS Plotly Dash visual dashboard.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <span>Resumint — Privacy-First Client-Side ATS Resume Analyzer</span>
+      <span>Next.js 16, React 19, TypeScript, pdfjs-dist</span>
+    </div>
+    <div class="item-sub">
+      <span>Production Client-Side Web Application</span>
+      <span>resumint-eta.vercel.app</span>
+    </div>
+    <ul>
+      <li>Built a zero-backend, client-side resume scoring application using Next.js static edge deployment and Web Workers.</li>
+      <li>Integrated in-browser PDF text extraction via <code>pdfjs-dist</code>, ensuring <strong>0 bytes of user data</strong> are ever uploaded to remote servers.</li>
+      <li>Delivered sub-250ms keyword extraction and heuristic semantic matching with zero server infrastructure overhead.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <span>Arogya-Relay — Emergency Ambulance Dispatch & Telemetry</span>
+      <span>Next.js, Supabase PostgreSQL 17, TypeScript</span>
+    </div>
+    <div class="item-sub">
+      <span>Healthcare Prototype & State Machine</span>
+      <span>arogya-relay.vercel.app</span>
+    </div>
+    <ul>
+      <li>Designed an atomic dispatch state machine on Supabase PostgreSQL 17 with Row Level Security (RLS) constraints.</li>
+      <li>Achieved sub-150ms state synchronization latency under simulated unstable 3G network conditions.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <span>Operational Workflow Automation Engines</span>
+      <span>n8n, Docker, Webhooks, Bash</span>
+    </div>
+    <div class="item-sub">
+      <span>Self-Hosted Operational Pipelines</span>
+      <span>github.com/Pratyush-kya/enterprise-n8n-automations</span>
+    </div>
+    <ul>
+      <li>Constructed webhook-triggered pipelines for automated developer inquiry routing and multi-channel technical note formatting.</li>
+      <li>Implemented automated service health monitors with instant push notifications to Telegram.</li>
+    </ul>
+  </div>
+
+  <h2>Technical Skills</h2>
+  <div class="skills-row">
+    <strong>Languages:</strong> Python, TypeScript, SQL, Bash/Shell, C/C++ (Foundational).
+  </div>
+  <div class="skills-row">
+    <strong>Systems & AI:</strong> PyTorch (Logits Interception, KV-Cache Profiling), Linux <code>/dev/shm</code>, In-Memory SQLite, PyTest, Plotly Dash.
+  </div>
+  <div class="skills-row">
+    <strong>Frontend & Web:</strong> Next.js 16 (App Router, SSG), React 19, Tailwind CSS v4, Web Workers (pdfjs-dist), HTML5/CSS3.
+  </div>
+  <div class="skills-row">
+    <strong>Backend & Tools:</strong> Supabase PostgreSQL 17, Docker, n8n Workflow Automation, Git, Linux/Unix CLI, Vercel Edge.
+  </div>
+
+</body>
+</html>
