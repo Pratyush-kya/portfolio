@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { PORTFOLIO_DATA } from "@/data/content";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
-import { FileText, Copy, Check, ArrowUpRight } from "lucide-react";
+import { FileText, Copy, Check, ArrowUpRight, Sparkles } from "lucide-react";
 
 export function Hero() {
   const [copied, setCopied] = useState(false);
@@ -19,48 +19,56 @@ export function Hero() {
   };
 
   return (
-    <section id="top" className="mb-16">
-      {/* Availability Badge */}
-      <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-emerald-950/60 border border-emerald-800/60 text-emerald-300 text-xs font-mono">
-        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-        <span>{PORTFOLIO_DATA.personal.statusBadge}</span>
+    <section id="top" className="mb-20 pt-4">
+      {/* Availability Status Badge */}
+      <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 mb-8 rounded-full bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 text-xs font-mono shadow-lg shadow-emerald-950/50">
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+        </span>
+        <span className="font-medium tracking-wide">{PORTFOLIO_DATA.personal.statusBadge}</span>
       </div>
 
-      {/* Name and Headline */}
-      <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
-        {PORTFOLIO_DATA.personal.name}
+      {/* Main Name with Subtle Glow */}
+      <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
+        Pratyush Kiran Rath
       </h1>
 
-      <p className="text-lg sm:text-xl text-zinc-300 font-medium leading-relaxed max-w-2xl mb-4">
-        Computer Science student building developer tooling, LLM inference telemetry &amp; web applications.
+      {/* Dynamic Gradient Headline */}
+      <p className="text-xl sm:text-2xl font-semibold leading-snug max-w-2xl mb-6">
+        <span className="text-slate-200">Computer Science student building </span>
+        <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
+          developer tooling, LLM telemetry &amp; web applications.
+        </span>
       </p>
 
-      <p className="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-2xl mb-8">
-        Focused on low-overhead systems profiling, privacy-first client-side computing, and automated operational pipelines. Studying B.Tech in CSE at Centurion University of Technology and Management (2025–2029).
+      {/* Honest, Grounded Narrative */}
+      <p className="text-base text-slate-300 leading-relaxed max-w-2xl mb-10">
+        Focused on low-overhead systems profiling, privacy-first client-side computing, and automated operational pipelines. Undergraduate at Centurion University of Technology and Management (B.Tech CSE, 2025–2029).
       </p>
 
       {/* Actions: Primary CTA + Secondary Actions */}
-      <div className="flex flex-wrap items-center gap-3 mb-12">
+      <div className="flex flex-wrap items-center gap-3.5 mb-14">
         {/* Dominant Primary CTA */}
         <a
           href={PORTFOLIO_DATA.personal.resumeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold text-sm transition-all shadow-lg shadow-emerald-500/20 active:scale-98"
+          className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-sm transition-all shadow-xl shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-[1.02] active:scale-[0.98]"
         >
           <FileText className="w-4 h-4" />
           <span>View Resume (PDF)</span>
-          <ArrowUpRight className="w-3.5 h-3.5" />
+          <ArrowUpRight className="w-4 h-4" />
         </a>
 
         {/* Copy Email Button */}
         <button
           onClick={copyEmail}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/80 text-zinc-200 text-sm font-medium transition-colors"
+          className="inline-flex items-center gap-2 px-4.5 py-3 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-white/10 hover:border-emerald-500/30 text-slate-200 text-sm font-medium transition-all shadow-lg shadow-black/20"
           aria-label="Copy email address"
         >
-          {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4 text-zinc-400" />}
-          <span>{copied ? "Copied to clipboard!" : "Copy Email"}</span>
+          {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4 text-slate-400" />}
+          <span className="font-mono text-xs">{copied ? "Copied: pratyushkiranrath4@gmail.com" : "Copy Email"}</span>
         </button>
 
         {/* GitHub */}
@@ -68,7 +76,7 @@ export function Hero() {
           href={PORTFOLIO_DATA.personal.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-zinc-900/60 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 text-sm font-medium transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-900/60 hover:bg-slate-800 border border-white/10 text-slate-300 hover:text-white text-sm font-medium transition-colors"
           aria-label="GitHub Profile"
         >
           <GithubIcon className="w-4 h-4" />
@@ -80,7 +88,7 @@ export function Hero() {
           href={PORTFOLIO_DATA.personal.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-zinc-900/60 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 text-sm font-medium transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-900/60 hover:bg-slate-800 border border-white/10 text-slate-300 hover:text-white text-sm font-medium transition-colors"
           aria-label="LinkedIn Profile"
         >
           <LinkedinIcon className="w-4 h-4 text-sky-400" />
@@ -88,26 +96,29 @@ export function Hero() {
         </a>
       </div>
 
-      {/* Defensible Metrics Strip */}
-      <div className="pt-8 border-t border-zinc-800/80">
-        <h2 className="text-xs uppercase tracking-wider text-zinc-300 font-mono mb-4">
-          Defensible Benchmarks &amp; Proof Points
-        </h2>
+      {/* Defensible Benchmarks Strip with Glowing Cards */}
+      <div className="pt-8 border-t border-white/10">
+        <div className="flex items-center gap-2 mb-4">
+          <Sparkles className="w-4 h-4 text-emerald-400" />
+          <h2 className="text-xs uppercase tracking-wider text-slate-300 font-mono font-semibold">
+            Defensible Benchmarks &amp; Proof Points
+          </h2>
+        </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
           {PORTFOLIO_DATA.defensibleMetrics.map((metric) => (
             <div
               key={metric.label}
-              className="p-3.5 rounded-xl bg-zinc-900/50 border border-zinc-800/80 flex flex-col justify-between"
+              className="glass-card p-4 rounded-xl flex flex-col justify-between group"
             >
               <div>
-                <div className="text-2xl font-bold font-mono text-emerald-400 mb-0.5">
+                <div className="text-2xl sm:text-3xl font-extrabold font-mono text-emerald-400 mb-1 group-hover:text-emerald-300 transition-colors">
                   {metric.value}
                 </div>
-                <div className="text-xs font-semibold text-zinc-200 mb-1">
+                <div className="text-xs font-semibold text-white mb-1.5">
                   {metric.label}
                 </div>
               </div>
-              <p className="text-[11px] text-zinc-400 leading-tight">
+              <p className="text-[11px] text-slate-300 leading-tight">
                 {metric.detail}
               </p>
             </div>

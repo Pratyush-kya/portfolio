@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://pratyushrath.vercel.app"),
-  title: `${PORTFOLIO_DATA.personal.name} — CS Student & Systems/Full-Stack Developer`,
+  title: `${PORTFOLIO_DATA.personal.name} — CS Student & Developer`,
   description: PORTFOLIO_DATA.personal.headline,
   authors: [{ name: PORTFOLIO_DATA.personal.name, url: PORTFOLIO_DATA.personal.github }],
   keywords: [
@@ -65,8 +65,21 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-[#09090b] text-zinc-100 antialiased selection:bg-emerald-950 selection:text-emerald-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+      <body className="min-h-screen bg-[#070b14] text-slate-100 antialiased selection:bg-emerald-950 selection:text-emerald-200 relative">
+        {/* Ambient atmospheric background glows */}
+        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+          {/* Top Emerald Ambient Glow */}
+          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-emerald-500/15 rounded-full blur-[140px]" />
+          {/* Cyan secondary glow on right */}
+          <div className="absolute top-[28rem] -right-40 w-[550px] h-[450px] bg-cyan-500/10 rounded-full blur-[140px]" />
+          {/* Indigo subtle accent on bottom left */}
+          <div className="absolute top-[60rem] -left-40 w-[600px] h-[500px] bg-indigo-500/10 rounded-full blur-[160px]" />
+          {/* Subtle geometric dot grid pattern */}
+          <div className="absolute inset-0 bg-grid-pattern opacity-40 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+        </div>
+
+        {/* Content container */}
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
           {children}
         </div>
       </body>

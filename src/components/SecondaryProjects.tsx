@@ -1,14 +1,17 @@
 import { PORTFOLIO_DATA } from "@/data/content";
-import { Workflow, ExternalLink } from "lucide-react";
+import { Workflow, ExternalLink, Sparkles } from "lucide-react";
 
 export function SecondaryProjects() {
   return (
-    <section className="mb-16">
+    <section className="mb-20">
       <div className="flex items-center gap-3 mb-2">
-        <h2 className="text-xl font-bold tracking-tight text-white">Other Projects &amp; Workflows</h2>
-        <span className="h-px flex-1 bg-zinc-800" />
+        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+          <Sparkles className="w-5 h-5 text-cyan-400" />
+          <span>Secondary Projects &amp; Workflows</span>
+        </h2>
+        <span className="h-px flex-1 bg-slate-800" />
       </div>
-      <p className="text-xs sm:text-sm text-zinc-400 mb-6">
+      <p className="text-xs sm:text-sm text-slate-300 mb-6">
         Self-hosted automation pipelines and educational cryptographic prototypes.
       </p>
 
@@ -16,24 +19,24 @@ export function SecondaryProjects() {
         {PORTFOLIO_DATA.secondaryProjects.map((project) => (
           <div
             key={project.title}
-            className="p-5 rounded-2xl bg-zinc-900/30 border border-zinc-800/80 flex flex-col justify-between"
+            className="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between group"
           >
             <div>
-              <div className="flex items-center justify-between gap-2 mb-2">
-                <span className="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono text-[11px]">
+              <div className="flex items-center justify-between gap-2 mb-3">
+                <span className="px-2.5 py-0.5 rounded-full bg-slate-800 border border-white/10 text-slate-300 font-mono text-xs">
                   {project.category}
                 </span>
-                <span className="px-2 py-0.5 rounded bg-zinc-800/60 border border-zinc-700/60 text-zinc-400 font-mono text-[10px]">
+                <span className="px-2 py-0.5 rounded-md bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 font-mono text-[11px]">
                   {project.status}
                 </span>
               </div>
 
-              <h3 className="text-base font-bold text-white mb-2 flex items-center gap-2">
-                {project.category.includes("Workflow") && <Workflow className="w-4 h-4 text-emerald-400" />}
+              <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2 group-hover:text-emerald-400 transition-colors">
+                {project.category.includes("Workflow") && <Workflow className="w-4 h-4 text-emerald-400 shrink-0" />}
                 <span>{project.title}</span>
               </h3>
 
-              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed mb-4">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5">
                 {project.description}
               </p>
             </div>
@@ -43,7 +46,7 @@ export function SecondaryProjects() {
                 {project.techStack.map((t) => (
                   <span
                     key={t}
-                    className="px-1.5 py-0.5 rounded bg-zinc-950 text-zinc-400 font-mono text-[10px]"
+                    className="px-2 py-0.5 rounded bg-slate-950/80 border border-white/5 text-slate-400 font-mono text-[10px]"
                   >
                     {t}
                   </span>
@@ -55,7 +58,7 @@ export function SecondaryProjects() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-emerald-400 hover:text-emerald-300 transition-colors"
                 >
                   <span>{project.linkText}</span>
                   <ExternalLink className="w-3 h-3" />
