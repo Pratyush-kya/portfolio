@@ -73,7 +73,7 @@ export function InteractiveTelemetryLab() {
         <strong className="text-white font-medium">Transformer Inference Profiler</strong>.
       </p>
 
-      <div className="glass-card rounded-2xl p-6 sm:p-8 border border-white/10 relative overflow-hidden">
+      <div className="glass-card rounded-2xl p-6 sm:p-8 border border-white/10 relative overflow-hidden scroll-reactive">
         {/* Glow accent */}
         <div className="absolute -top-24 -right-24 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
 

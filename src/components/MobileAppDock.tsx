@@ -88,7 +88,7 @@ export function MobileAppDock() {
           <span className="text-[10px] font-mono font-medium">Lab</span>
         </a>
 
-        {/* Smart Display */}
+        {/* Systems Command Deck */}
         <a
           href="#smart-display"
           className={`flex flex-col items-center gap-1 px-3 py-1.5 rounded-xl transition-all ${
@@ -96,10 +96,10 @@ export function MobileAppDock() {
               ? "text-purple-400 bg-purple-950/40 border border-purple-500/30"
               : "text-slate-400 hover:text-slate-200"
           }`}
-          aria-label="Smart Display"
+          aria-label="Systems Command Deck"
         >
           <Compass className="w-4 h-4" />
-          <span className="text-[10px] font-mono font-medium">Orbit</span>
+          <span className="text-[10px] font-mono font-medium">Deck</span>
         </a>
 
         {/* CLI Terminal */}

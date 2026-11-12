@@ -105,7 +105,7 @@ export function Hero() {
 
         {/* Right Column: Web3 Futuristic Holographic Status Card */}
         <div className="lg:col-span-5">
-          <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-slate-950/90 shadow-2xl shadow-emerald-950/40 p-5 group">
+          <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-slate-950/90 shadow-2xl shadow-emerald-950/40 p-5 group scroll-reactive">
             {/* Ambient Corner Mesh */}
             <div className="absolute -top-12 -right-12 w-48 h-48 bg-emerald-500/15 rounded-full blur-2xl pointer-events-none" />
 

@@ -15,7 +15,7 @@ export function TechnicalArticle() {
         An in-depth analysis of memory bottlenecks during LLM decoding and zero-disk in-RAM telemetry architecture.
       </p>
 
-      <article className="glass-card p-6 sm:p-8 rounded-2xl border border-white/10 text-slate-200 text-sm sm:text-base leading-relaxed space-y-6">
+      <article className="glass-card p-6 sm:p-8 rounded-2xl border border-white/10 text-slate-200 text-sm sm:text-base leading-relaxed space-y-6 scroll-reactive">
         <div>
           <div className="flex flex-wrap items-center gap-2 mb-3 font-mono text-xs">
             <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-semibold">

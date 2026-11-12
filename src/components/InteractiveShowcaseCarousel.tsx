@@ -137,7 +137,7 @@ const SHOWCASE_SLIDES: ShowcaseSlide[] = [
 
 export function InteractiveShowcaseCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -256,7 +256,7 @@ export function InteractiveShowcaseCarousel() {
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
-        className="relative rounded-3xl overflow-hidden border border-white/10 bg-slate-950/80 backdrop-blur-2xl shadow-2xl shadow-black/80 select-none"
+        className="relative rounded-3xl overflow-hidden border border-white/10 bg-slate-950/80 backdrop-blur-2xl shadow-2xl shadow-black/80 select-none scroll-reactive"
       >
         {/* Ambient Glow Gradient matching current slide accent */}
         <div 

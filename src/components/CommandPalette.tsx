@@ -75,7 +75,7 @@ export function CommandPalette() {
       category: "Navigation"
     },
     {
-      label: "Smart Device Orbit UI",
+      label: "Systems Orbit Command Deck",
       section: "#smart-display",
       icon: Compass,
       color: "text-purple-400",

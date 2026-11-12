@@ -196,7 +196,7 @@ const ORBIT_NODES: OrbitNode[] = [
 export function DishOrbitShowcase() {
   const [activeIdx, setActiveIdx] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [isAutoOrbit, setIsAutoOrbit] = useState(true);
+  const [isAutoOrbit, setIsAutoOrbit] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [isSimulating, setIsSimulating] = useState(false);
   const [simOutput, setSimOutput] = useState<string | null>(null);
@@ -341,7 +341,7 @@ export function DishOrbitShowcase() {
         className={
           isFullscreen
             ? "fixed inset-0 z-50 w-screen h-screen bg-[#070b14] flex flex-col justify-between overflow-y-auto p-4 sm:p-8"
-            : "relative w-full rounded-3xl overflow-hidden border border-white/15 bg-slate-950/90 shadow-2xl shadow-purple-950/30 min-h-[700px] lg:min-h-[740px] flex flex-col justify-between"
+            : "relative w-full rounded-3xl overflow-hidden border border-white/15 bg-slate-950/90 shadow-2xl shadow-purple-950/30 min-h-[700px] lg:min-h-[740px] flex flex-col justify-between scroll-reactive"
         }
       >
         {/* Fullscreen HUD Status Bar */}

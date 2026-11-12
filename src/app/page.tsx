@@ -14,6 +14,7 @@ import { AmbientCyberRain } from "@/components/AmbientCyberRain";
 import { MobileAppDock } from "@/components/MobileAppDock";
 import { CommandPalette } from "@/components/CommandPalette";
 import { SystemsTerminal } from "@/components/SystemsTerminal";
+import { ScrollDynamicsSentinel } from "@/components/ScrollDynamicsSentinel";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <AmbientCyberRain />
       <CommandPalette />
       <SystemsTerminal />
+      <ScrollDynamicsSentinel />
       <Nav />
       <main id="main-content" className="relative z-10 pb-20 md:pb-0">
         <Hero />

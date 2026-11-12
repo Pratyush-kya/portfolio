@@ -93,7 +93,7 @@ export function FlagshipProjects() {
           return (
             <article
               key={project.id}
-              className="glass-card rounded-2xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all duration-300 shadow-xl shadow-black/40"
+              className="glass-card rounded-2xl border border-white/10 relative overflow-hidden group hover:border-emerald-500/30 transition-all duration-300 shadow-xl shadow-black/40 scroll-reactive"
             >
               {/* Rich Visual Image Banner */}
               <div className="relative h-48 sm:h-64 w-full overflow-hidden bg-slate-950 border-b border-white/10">

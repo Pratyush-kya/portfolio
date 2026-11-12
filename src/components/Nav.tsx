@@ -41,7 +41,7 @@ export function Nav() {
             Interactive Lab
           </a>
           <a href="#smart-display" className="hover:text-purple-400 transition-colors">
-            Smart UI
+            Systems Deck
           </a>
           <a href="#deep-dive" className="hover:text-emerald-400 transition-colors">
             Deep Dive
@@ -113,7 +113,7 @@ export function Nav() {
             onClick={() => setIsOpen(false)}
             className="py-1.5 hover:text-purple-400 transition-colors"
           >
-            Smart Device Orbit UI
+            Systems Command Deck
           </a>
           <a
             href="#deep-dive"

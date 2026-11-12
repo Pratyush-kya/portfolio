@@ -51,6 +51,19 @@ input:focus-visible {
   border-radius: 6px;
 }
 
+/* Dynamic Scroll Reaction Utility: Subtle horizontal & vertical shift on scroll up / down */
+.scroll-reactive {
+  transform: translate3d(var(--scroll-dyn-x, 0px), var(--scroll-dyn-y, 0px), 0px);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+.scroll-reactive-reverse {
+  transform: translate3d(calc(var(--scroll-dyn-x, 0px) * -1), calc(var(--scroll-dyn-y, 0px) * -1), 0px);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   *,
