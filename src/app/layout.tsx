@@ -78,17 +78,17 @@ export default function RootLayout({
         {/* Ambient atmospheric background glows */}
         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
           {/* Top Emerald Ambient Glow */}
-          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-emerald-500/15 rounded-full blur-[140px]" />
+          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[1100px] h-[550px] bg-emerald-500/15 rounded-full blur-[160px]" />
           {/* Cyan secondary glow on right */}
-          <div className="absolute top-[28rem] -right-40 w-[550px] h-[450px] bg-cyan-500/10 rounded-full blur-[140px]" />
+          <div className="absolute top-[28rem] -right-20 w-[800px] h-[550px] bg-cyan-500/10 rounded-full blur-[160px]" />
           {/* Indigo subtle accent on bottom left */}
-          <div className="absolute top-[60rem] -left-40 w-[600px] h-[500px] bg-indigo-500/10 rounded-full blur-[160px]" />
+          <div className="absolute top-[60rem] -left-20 w-[900px] h-[600px] bg-indigo-500/10 rounded-full blur-[180px]" />
           {/* Subtle geometric dot grid pattern */}
           <div className="absolute inset-0 bg-grid-pattern opacity-40 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
         </div>
 
-        {/* Content container */}
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+        {/* Full-bleed responsive container taking the whole screen */}
+        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 py-6 md:py-10">
           {children}
         </div>
       </body>

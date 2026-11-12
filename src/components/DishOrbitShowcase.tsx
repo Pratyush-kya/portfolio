@@ -145,6 +145,7 @@ const KITCHEN_DISHES: Dish[] = [
 export function DishOrbitShowcase() {
   const [activePreset, setActivePreset] = useState<"systems" | "kitchen">("systems");
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isAutoOrbit, setIsAutoOrbit] = useState(true);
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
@@ -155,6 +156,25 @@ export function DishOrbitShowcase() {
   const showToast = (msg: string) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(null), 3000);
+  };
+
+  // Toggle true browser fullscreen if supported
+  const toggleFullscreen = () => {
+    if (!isFullscreen) {
+      setIsFullscreen(true);
+      try {
+        if (document.documentElement.requestFullscreen && !document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(() => {});
+        }
+      } catch {}
+    } else {
+      setIsFullscreen(false);
+      try {
+        if (document.exitFullscreen && document.fullscreenElement) {
+          document.exitFullscreen().catch(() => {});
+        }
+      } catch {}
+    }
   };
 
   // Keyboard Escape listener to exit fullscreen
@@ -219,9 +239,23 @@ export function DishOrbitShowcase() {
             </button>
           </div>
 
+          {/* Auto-Orbit Toggle Button */}
+          <button
+            onClick={() => setIsAutoOrbit(!isAutoOrbit)}
+            className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-mono font-medium border transition-all ${
+              isAutoOrbit
+                ? "bg-purple-950/80 border-purple-500/40 text-purple-300"
+                : "bg-slate-900 border-white/10 text-slate-400 hover:text-white"
+            }`}
+            title="Toggle autonomous orbital rotation"
+          >
+            <span className={`w-2 h-2 rounded-full ${isAutoOrbit ? "bg-purple-400 animate-pulse" : "bg-slate-600"}`} />
+            <span>Auto-Orbit {isAutoOrbit ? "ON" : "OFF"}</span>
+          </button>
+
           {/* Full-Screen Kiosk Mode Button */}
           <button
-            onClick={() => setIsFullscreen(!isFullscreen)}
+            onClick={toggleFullscreen}
             className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-white/15 text-xs font-mono font-medium text-slate-200 hover:text-white transition-all shadow-lg active:scale-95"
             title="Enter full-screen kiosk app experience"
           >
@@ -233,7 +267,7 @@ export function DishOrbitShowcase() {
             ) : (
               <>
                 <Maximize2 className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Enter Fullscreen App</span>
+                <span>Full-Screen App</span>
               </>
             )}
           </button>
@@ -294,8 +328,10 @@ export function DishOrbitShowcase() {
           <DishOrbitCarousel
             key={activePreset + (isFullscreen ? "-fs" : "-std")}
             dishes={dishes}
-            height={isFullscreen ? "calc(100vh - 130px)" : "720px"}
+            height={isFullscreen ? "calc(100vh - 130px)" : "680px"}
             loop={true}
+            enableScrollPin={false}
+            autoRotateInterval={isAutoOrbit ? 4500 : 0}
             onChange={(idx) => setActiveItemIndex(idx)}
             onOrder={(dish) => showToast(`Executing action for: ${dish.subtitle}`)}
             onPlay={(dish) => showToast(`Inspecting node telemetry: ${dish.title}`)}

@@ -54,6 +54,10 @@ export type DishOrbitCarouselProps = {
   onOrder?: (dish: Dish, index: number) => void
   onChange?: (index: number) => void
   className?: string
+  /** Whether to hijack window scroll with ScrollTrigger. Defaults to false for fluid lag-free page scroll. */
+  enableScrollPin?: boolean
+  /** Auto-advance interval in ms. Set > 0 for autonomous orbital rotation. */
+  autoRotateInterval?: number
 }
 
 // #region carousel
@@ -131,7 +135,7 @@ const FONT = "dsh-face"
 
 const CSS =
   ".dsh-trk{position:relative;width:100%}" +
-  ".dsh-root{position:sticky;top:0;overflow:hidden;width:100%;background:var(--color-background);color:var(--color-foreground);" +
+  ".dsh-root{position:relative;overflow:hidden;width:100%;background:var(--color-background);color:var(--color-foreground);" +
   "font-family:" + FONT + ",ui-sans-serif,system-ui,sans-serif;container-type:inline-size;-webkit-tap-highlight-color:transparent}" +
   ".dsh-root *{box-sizing:border-box}" +
   ".dsh-bd{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;pointer-events:none}" +
@@ -241,6 +245,8 @@ export function DishOrbitCarousel({
   onOrder,
   onChange,
   className,
+  enableScrollPin = false,
+  autoRotateInterval = 0,
 }: DishOrbitCarouselProps) {
   const n = dishes.length
   const [index, setIndex] = useState(0)
@@ -363,9 +369,19 @@ export function DishOrbitCarousel({
     onChangeRef.current?.(next)
   }
 
-  // The page scroll drives the dish: the stage pins, one stretch of scroll per dish, snapping between them.
-  const steps = scrollSteps(n, loop)
+  // Autonomous orbital rotation timer
   useEffect(() => {
+    if (autoRotateInterval <= 0) return
+    const timer = setInterval(() => {
+      step(1)
+    }, autoRotateInterval)
+    return () => clearInterval(timer)
+  }, [autoRotateInterval, index, n])
+
+  // The page scroll drives the dish only if enableScrollPin is explicitly requested
+  const steps = enableScrollPin ? scrollSteps(n, loop) : 0
+  useEffect(() => {
+    if (!enableScrollPin) return
     const track = trackRef.current
     if (!track || steps < 1) return
     const trigger = ScrollTrigger.create({
@@ -388,8 +404,6 @@ export function DishOrbitCarousel({
         select(wrapIndex(seg, n), dir)
       },
     })
-    // At the very top no scroll is left to fire onUpdate, so scrolling up there wraps round to the last dish.
-    // Deferred a frame so the browser's own wheel scroll has landed first.
     let raf = 0
     const onWheel = (e: WheelEvent) => {
       const y = trigger.scroll()
@@ -409,7 +423,7 @@ export function DishOrbitCarousel({
       trigger.kill()
       stRef.current = null
     }
-  }, [steps, loop, n])
+  }, [enableScrollPin, steps, loop, n])
 
   // Buttons, keys and swipes jump to a dish and move the scroll to its stretch, so the two stay in step.
   const go = (to: number, dir?: 1 | -1) => {
@@ -443,12 +457,16 @@ export function DishOrbitCarousel({
   const start = stripStart(index, n, VISIBLE)
   const dish = dishes[index]
 
+  const trackStyle = enableScrollPin
+    ? { height: "calc(" + height + " * " + (1 + steps * SCROLL_PER_DISH) + ")" }
+    : { height, position: "relative" as const }
+
   return (
-    <div ref={trackRef} className={"dsh-trk" + (className ? " " + className : "")} style={{ height: "calc(" + height + " * " + (1 + steps * SCROLL_PER_DISH) + ")" }}>
+    <div ref={trackRef} className={"dsh-trk" + (className ? " " + className : "")} style={trackStyle}>
     <div
       ref={rootRef}
       className="dsh-root"
-      style={{ height }}
+      style={{ height, position: enableScrollPin ? "sticky" : "relative" }}
       role="region"
       aria-roledescription="carousel"
       aria-label="Dishes"

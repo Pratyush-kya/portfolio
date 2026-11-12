@@ -278,8 +278,8 @@ export function SystemsTerminal() {
           aria-label="Interactive Systems Terminal"
           className={`fixed z-50 transition-all duration-300 flex flex-col bg-slate-950/95 backdrop-blur-2xl border border-white/20 shadow-2xl shadow-emerald-950/40 font-mono text-sm ${
             isMaximized
-              ? "inset-4 rounded-2xl"
-              : "bottom-0 right-0 left-0 md:left-auto md:right-6 md:bottom-6 md:w-[620px] md:h-[420px] h-[360px] md:rounded-2xl rounded-t-2xl"
+              ? "inset-0 md:inset-6 rounded-none md:rounded-2xl"
+              : "bottom-0 right-0 left-0 md:left-auto md:right-8 md:bottom-8 md:w-[760px] md:h-[480px] h-[380px] md:rounded-2xl rounded-t-2xl"
           }`}
         >
           {/* Terminal Window Title Bar */}

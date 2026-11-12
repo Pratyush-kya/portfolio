@@ -10,29 +10,45 @@ const DataRain = dynamic(() => import("@/components/ui/data-rain"), { ssr: false
 export function AmbientCyberRain() {
   const [enabled, setEnabled] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     // Respect reduced motion
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!prefersReducedMotion) {
-      // Default to active on desktop for high-energy web3 feel
-      if (window.innerWidth >= 768) {
+      // Default to active on larger displays
+      if (window.innerWidth >= 1024) {
         setEnabled(true);
       }
     }
+
+    let scrollTimeout: NodeJS.Timeout;
+    const handleScroll = () => {
+      setIsScrolling(true);
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        setIsScrolling(false);
+      }, 120);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(scrollTimeout);
+    };
   }, []);
 
   if (!mounted) return null;
 
   return (
     <>
-      {enabled && (
-        <div className="fixed inset-0 z-0 pointer-events-none opacity-25 transition-opacity duration-1000">
+      {enabled && !isScrolling && (
+        <div className="fixed inset-0 z-0 pointer-events-none opacity-20 transition-opacity duration-300">
           <DataRain
             fullscreen={true}
-            count={1400}
-            flowSpeed={0.8}
+            count={140}
+            flowSpeed={0.7}
             palette={{
               calm: "#10b981",
               mid: "#06b6d4",
