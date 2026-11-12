@@ -5,6 +5,8 @@ import Image from "next/image";
 import { PORTFOLIO_DATA, CaseStudy } from "@/data/content";
 import { GithubIcon } from "@/components/Icons";
 import { ExternalLink, AlertTriangle, Layers, Award, RotateCcw, ArrowRight, Eye } from "lucide-react";
+import { ResumintInteractiveWidget } from "@/components/ResumintInteractiveWidget";
+import { ArogyaDispatchSimulator } from "@/components/ArogyaDispatchSimulator";
 
 const PROJECT_IMAGES: Record<string, { src: string; overlay: string; tag: string }> = {
   "transformer-profiler": {
@@ -300,6 +302,19 @@ export function FlagshipProjects() {
                     <p className="text-xs sm:text-sm text-slate-300 leading-relaxed p-4 rounded-xl bg-slate-900/40 border border-white/5">
                       {project.whatIdChange}
                     </p>
+                  </div>
+                )}
+
+                {/* Living Proof-of-Work Widgets */}
+                {project.id === "resumint-ats" && (
+                  <div className="mt-5">
+                    <ResumintInteractiveWidget />
+                  </div>
+                )}
+
+                {project.id === "arogya-relay" && (
+                  <div className="mt-5">
+                    <ArogyaDispatchSimulator />
                   </div>
                 )}
 

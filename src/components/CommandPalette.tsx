@@ -177,6 +177,23 @@ export function CommandPalette() {
                 Actions &amp; Documents
               </div>
 
+              {/* Systems CLI Terminal */}
+              <button
+                onClick={() => {
+                  setIsOpen(false);
+                  window.dispatchEvent(new CustomEvent("toggle-terminal"));
+                }}
+                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-slate-900 text-slate-200 hover:text-white transition-colors group text-left"
+              >
+                <div className="flex items-center gap-3 text-xs sm:text-sm font-medium">
+                  <Terminal className="w-4 h-4 text-emerald-400" />
+                  <span>Toggle Systems CLI Terminal</span>
+                </div>
+                <span className="text-[11px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-1.5 py-0.5 rounded">
+                  ` or ⌘J
+                </span>
+              </button>
+
               {/* Copy Email */}
               <button
                 onClick={copyEmail}

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Play, RotateCcw, Cpu, HardDrive, BarChart3, ShieldCheck } from "lucide-react";
+import { StorageBenchmarkLab } from "@/components/StorageBenchmarkLab";
 
 interface ModelPreset {
   name: string;
@@ -222,6 +223,9 @@ export function InteractiveTelemetryLab() {
             </div>
           </div>
         </div>
+
+        {/* Empirical Storage Contention Benchmark Comparator */}
+        <StorageBenchmarkLab />
       </div>
     </section>
   );

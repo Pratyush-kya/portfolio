@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Sparkles, Layers, Cpu, FileText, Mail, Check, Compass } from "lucide-react";
+import { Sparkles, Layers, Cpu, FileText, Mail, Check, Compass, Terminal } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/content";
 
 export function MobileAppDock() {
@@ -101,6 +101,16 @@ export function MobileAppDock() {
           <Compass className="w-4 h-4" />
           <span className="text-[10px] font-mono font-medium">Orbit</span>
         </a>
+
+        {/* CLI Terminal */}
+        <button
+          onClick={() => window.dispatchEvent(new CustomEvent("toggle-terminal"))}
+          className="flex flex-col items-center gap-1 px-2 py-1.5 rounded-xl text-slate-400 hover:text-emerald-400 transition-all font-mono"
+          aria-label="Systems CLI Terminal"
+        >
+          <Terminal className="w-4 h-4 text-emerald-400" />
+          <span className="text-[10px] font-mono font-medium text-emerald-400">CLI</span>
+        </button>
 
         {/* PDF Resume */}
         <a

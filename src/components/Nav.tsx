@@ -52,6 +52,15 @@ export function Nav() {
           <a href="#about" className="hover:text-emerald-400 transition-colors">
             About
           </a>
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("toggle-terminal"))}
+            title="Open Systems CLI Terminal (` or ⌘J)"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-300 hover:text-emerald-400 font-mono text-xs transition-all shadow-sm"
+          >
+            <span className="text-emerald-400 font-bold">&gt;_</span>
+            <span>CLI</span>
+            <kbd className="hidden lg:inline text-[9px] text-slate-400 bg-slate-900 px-1 py-0.5 rounded border border-white/5 font-mono">`</kbd>
+          </button>
           <a
             href={PORTFOLIO_DATA.personal.resumeUrl}
             target="_blank"
@@ -127,6 +136,19 @@ export function Nav() {
           >
             About &amp; Education
           </a>
+          <button
+            onClick={() => {
+              setIsOpen(false);
+              window.dispatchEvent(new CustomEvent("toggle-terminal"));
+            }}
+            className="py-2 px-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-emerald-400 font-mono text-xs flex items-center justify-between"
+          >
+            <span className="flex items-center gap-2">
+              <span className="font-bold">&gt;_</span>
+              <span>Systems CLI Terminal</span>
+            </span>
+            <kbd className="text-[10px] text-slate-400 bg-slate-900 px-1.5 py-0.5 rounded border border-white/5">`</kbd>
+          </button>
           <a
             href={PORTFOLIO_DATA.personal.resumeUrl}
             target="_blank"

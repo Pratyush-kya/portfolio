@@ -13,12 +13,14 @@ import { Footer } from "@/components/Footer";
 import { AmbientCyberRain } from "@/components/AmbientCyberRain";
 import { MobileAppDock } from "@/components/MobileAppDock";
 import { CommandPalette } from "@/components/CommandPalette";
+import { SystemsTerminal } from "@/components/SystemsTerminal";
 
 export default function Home() {
   return (
     <>
       <AmbientCyberRain />
       <CommandPalette />
+      <SystemsTerminal />
       <Nav />
       <main id="main-content" className="relative z-10 pb-20 md:pb-0">
         <Hero />

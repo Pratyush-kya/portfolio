@@ -38,11 +38,20 @@ export const metadata: Metadata = {
     title: `${PORTFOLIO_DATA.personal.name} — CS Student & Developer`,
     description: PORTFOLIO_DATA.personal.headline,
     siteName: `${PORTFOLIO_DATA.personal.name} Engineering Portfolio`,
+    images: [
+      {
+        url: "/api/og",
+        width: 1200,
+        height: 630,
+        alt: `${PORTFOLIO_DATA.personal.name} Systems & Full-Stack Portfolio`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${PORTFOLIO_DATA.personal.name} — CS Student & Developer`,
     description: PORTFOLIO_DATA.personal.headline,
+    images: ["/api/og"],
   },
   robots: {
     index: true,
