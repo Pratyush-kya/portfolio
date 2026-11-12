@@ -87,8 +87,8 @@ export default function RootLayout({
           <div className="absolute inset-0 bg-grid-pattern opacity-40 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
         </div>
 
-        {/* Full-bleed responsive container taking the whole screen */}
-        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 py-6 md:py-10">
+        {/* Full-bleed responsive container taking the complete screen space */}
+        <div className="relative z-10 w-full max-w-[1880px] mx-auto px-3 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-4 md:py-8">
           {children}
         </div>
       </body>

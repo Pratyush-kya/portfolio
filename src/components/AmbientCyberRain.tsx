@@ -14,22 +14,13 @@ export function AmbientCyberRain() {
 
   useEffect(() => {
     setMounted(true);
-    // Respect reduced motion
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!prefersReducedMotion) {
-      // Default to active on larger displays
-      if (window.innerWidth >= 1024) {
-        setEnabled(true);
-      }
-    }
-
     let scrollTimeout: NodeJS.Timeout;
     const handleScroll = () => {
       setIsScrolling(true);
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(() => {
         setIsScrolling(false);
-      }, 120);
+      }, 150);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -47,8 +38,8 @@ export function AmbientCyberRain() {
         <div className="fixed inset-0 z-0 pointer-events-none opacity-20 transition-opacity duration-300">
           <DataRain
             fullscreen={true}
-            count={140}
-            flowSpeed={0.7}
+            count={60}
+            flowSpeed={0.6}
             palette={{
               calm: "#10b981",
               mid: "#06b6d4",
