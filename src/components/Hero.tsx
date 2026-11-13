@@ -123,10 +123,10 @@ export function Hero() {
               <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md border border-emerald-500/40 text-[11px] font-mono text-emerald-300">
                   <Activity className="w-3 h-3 text-emerald-400 animate-pulse" />
-                  <span>NODE_PROFILER: ONLINE</span>
+                  <span>Inference Profiler: Active</span>
                 </span>
                 <span className="px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-md border border-white/10 text-[10px] font-mono text-slate-400">
-                  v2.4-STABLE
+                  Production Benchmark
                 </span>
               </div>
 

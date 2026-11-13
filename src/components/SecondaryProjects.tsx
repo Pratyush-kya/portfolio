@@ -5,11 +5,11 @@ import { Workflow, ExternalLink, Sparkles, ShieldCheck } from "lucide-react";
 const SECONDARY_IMAGES = [
   {
     image: "/projects/web3-crypto.jpg",
-    hud: "Solidity Sepolia Testnet // VRF 256-bit"
+    hud: "Solidity Sepolia Testnet • VRF 256-bit"
   },
   {
     image: "/projects/pipeline-n8n.jpg",
-    hud: "Docker Health Probes // Exponential Backoff"
+    hud: "Docker Health Probes • Exponential Backoff"
   }
 ];
 

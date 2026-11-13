@@ -113,7 +113,7 @@ export function FlagshipProjects() {
                   </span>
 
                   <span className="px-2.5 py-1 rounded-lg bg-black/75 backdrop-blur-md border border-white/15 text-xs font-mono text-slate-300">
-                    ID // 0{idx + 1}
+                    Case Study 0{idx + 1}
                   </span>
                 </div>
 

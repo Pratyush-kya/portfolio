@@ -6,7 +6,6 @@ import {
   Sparkles, 
   Layers, 
   Cpu, 
-  Compass, 
   BookOpen, 
   User, 
   FileText, 
@@ -72,13 +71,6 @@ export function CommandPalette() {
       section: "#interactive-lab",
       icon: Cpu,
       color: "text-teal-400",
-      category: "Navigation"
-    },
-    {
-      label: "Systems Orbit Command Deck",
-      section: "#smart-display",
-      icon: Compass,
-      color: "text-purple-400",
       category: "Navigation"
     },
     {

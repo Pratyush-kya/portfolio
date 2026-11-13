@@ -37,11 +37,8 @@ export function Nav() {
           <a href="#projects" className="hover:text-emerald-400 transition-colors">
             Projects
           </a>
-          <a href="#interactive-lab" className="hover:text-emerald-400 transition-colors">
+          <a href="#interactive-lab" className="hover:text-teal-400 transition-colors">
             Interactive Lab
-          </a>
-          <a href="#smart-display" className="hover:text-purple-400 transition-colors">
-            Systems Deck
           </a>
           <a href="#deep-dive" className="hover:text-emerald-400 transition-colors">
             Deep Dive
@@ -104,16 +101,9 @@ export function Nav() {
           <a
             href="#interactive-lab"
             onClick={() => setIsOpen(false)}
-            className="py-1.5 hover:text-emerald-400 transition-colors"
+            className="py-1.5 hover:text-teal-400 transition-colors"
           >
             Interactive Lab &amp; Simulator
-          </a>
-          <a
-            href="#smart-display"
-            onClick={() => setIsOpen(false)}
-            className="py-1.5 hover:text-purple-400 transition-colors"
-          >
-            Systems Command Deck
           </a>
           <a
             href="#deep-dive"

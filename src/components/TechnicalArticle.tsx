@@ -55,7 +55,7 @@ export function TechnicalArticle() {
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
             <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs font-mono">
               <span className="text-emerald-300 bg-black/80 px-2.5 py-1 rounded backdrop-blur-sm border border-emerald-500/30">
-                Fig 1.0 // Kernel /dev/shm Ring Buffer Architecture
+                Figure 1: POSIX Shared Memory Ring Buffer Architecture
               </span>
               <span className="hidden sm:inline text-slate-400 bg-black/80 px-2.5 py-1 rounded backdrop-blur-sm">
                 Zero Disk Contention

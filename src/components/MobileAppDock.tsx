@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Sparkles, Layers, Cpu, FileText, Mail, Check, Compass, Terminal } from "lucide-react";
+import { Sparkles, Layers, Cpu, FileText, Mail, Check, Terminal } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/content";
 
 export function MobileAppDock() {
@@ -10,7 +10,7 @@ export function MobileAppDock() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["top", "showcase", "projects", "interactive-lab", "smart-display"];
+      const sections = ["top", "showcase", "projects", "interactive-lab", "deep-dive"];
       const scrollPos = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -86,20 +86,6 @@ export function MobileAppDock() {
         >
           <Cpu className="w-4 h-4" />
           <span className="text-[10px] font-mono font-medium">Lab</span>
-        </a>
-
-        {/* Systems Command Deck */}
-        <a
-          href="#smart-display"
-          className={`flex flex-col items-center gap-1 px-3 py-1.5 rounded-xl transition-all ${
-            activeSection === "smart-display"
-              ? "text-purple-400 bg-purple-950/40 border border-purple-500/30"
-              : "text-slate-400 hover:text-slate-200"
-          }`}
-          aria-label="Systems Command Deck"
-        >
-          <Compass className="w-4 h-4" />
-          <span className="text-[10px] font-mono font-medium">Deck</span>
         </a>
 
         {/* CLI Terminal */}
