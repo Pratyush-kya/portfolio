@@ -111,9 +111,9 @@ export function ArogyaDispatchSimulator() {
         </div>
 
         <div className="p-2 rounded bg-slate-900/60 border border-white/5">
-          <div className="text-[10px] text-slate-400">Broker Protocol</div>
+          <div className="text-[10px] text-slate-400">Database &amp; Sync</div>
           <div className="text-xs font-semibold text-emerald-400 mt-0.5">
-            MQTT v5 QoS-1
+            Supabase Postgres 17
           </div>
         </div>
 

@@ -10,17 +10,17 @@ import { ArogyaDispatchSimulator } from "@/components/ArogyaDispatchSimulator";
 
 const PROJECT_IMAGES: Record<string, { src: string; overlay: string; tag: string }> = {
   "transformer-profiler": {
-    src: "/projects/profiler-hero.jpg",
+    src: "/projects/profiler-real.png",
     overlay: "CUDA Event Interceptor & /dev/shm Ring Buffer",
     tag: "Low-Overhead Telemetry"
   },
   "resumint-ats": {
-    src: "/projects/resumint-hero.jpg",
+    src: "/projects/resumint-real.png",
     overlay: "WASM ONNX Local Neural Parser & Radar Vectoring",
     tag: "Zero-Cloud Egress"
   },
   "arogya-relay": {
-    src: "/projects/arogya-hero.jpg",
+    src: "/projects/arogya-real.png",
     overlay: "MQTT QoS-1 Spatial Geohash Routing Matrix",
     tag: "Sub-100ms Dispatch"
   }

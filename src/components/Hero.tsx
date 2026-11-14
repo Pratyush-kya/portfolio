@@ -101,6 +101,37 @@ export function Hero() {
               <span className="hidden sm:inline">LinkedIn</span>
             </a>
           </div>
+
+          {/* Connected Engineering Ecosystem (LinkedIn • GitHub • Vercel • Supabase) */}
+          <div className="flex flex-wrap items-center gap-2 mt-6">
+            <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400">Ecosystem:</span>
+            <a
+              href={PORTFOLIO_DATA.personal.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-sky-950/50 border border-sky-500/30 text-sky-300 text-xs font-mono hover:bg-sky-900/50 transition-colors"
+            >
+              <LinkedinIcon className="w-3.5 h-3.5" />
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href={PORTFOLIO_DATA.personal.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900/90 border border-white/10 text-slate-300 text-xs font-mono hover:bg-slate-800 transition-colors"
+            >
+              <GithubIcon className="w-3.5 h-3.5" />
+              <span>GitHub</span>
+            </a>
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/60 border border-white/15 text-slate-300 text-xs font-mono">
+              <span className="text-white font-bold">▲</span>
+              <span>Vercel Edge</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-950/50 border border-emerald-500/30 text-emerald-300 text-xs font-mono">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Supabase DB</span>
+            </span>
+          </div>
         </div>
 
         {/* Right Column: Web3 Futuristic Holographic Status Card */}
@@ -112,10 +143,10 @@ export function Hero() {
             {/* Visual Header Image with Cyber HUD */}
             <div className="relative h-44 rounded-xl overflow-hidden mb-4 border border-white/10">
               <Image
-                src="/projects/telemetry-mesh.jpg"
-                alt="Cybernetic Web3 Systems Mesh"
+                src="/projects/profiler-real.png"
+                alt="Transformer Inference Profiler Telemetry Console"
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />

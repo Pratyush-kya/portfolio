@@ -39,7 +39,7 @@ export const PORTFOLIO_DATA = {
   personal: {
     name: "Pratyush Kiran Rath",
     role: "Computer Science Student & Systems/Full-Stack Developer",
-    headline: "Computer Science student @ Centurion University building developer tooling, LLM inference telemetry & web applications.",
+    headline: "Software Engineering Student @ CUTM | Systems, LLM Inference Telemetry & Full-Stack (Next.js, Supabase, Python) | n8n Automation Architect",
     bio: "I am an undergraduate Computer Science student at Centurion University of Technology and Management (Class of 2029). My focus sits at the intersection of systems efficiency, telemetry, and practical web tooling. Rather than building speculative abstractions, I prefer writing lightweight tools that measure and optimize what already exists.",
     university: "Centurion University of Technology and Management (CUTM)",
     degree: "B.Tech in Computer Science and Engineering",
